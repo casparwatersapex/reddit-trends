@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "tests"
+  ],
+  "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+  "ruff.enable": true,
+  "python.analysis.typeCheckingMode": "basic"
+}

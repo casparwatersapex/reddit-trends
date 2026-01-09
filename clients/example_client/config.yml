@@ -1,0 +1,14 @@
+client_name: Example Client
+
+# Required canonical columns for v1 analysis templates
+required_columns:
+  - date
+  - value
+
+# Mapping from raw input columns -> canonical names
+column_mapping:
+  Date: date
+  Amount: value
+
+# Parsing hints
+date_format: null   # e.g. "%Y-%m-%d" if needed

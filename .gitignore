@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+.env
+.env.*
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Outputs
+output/
+reports/
+
+# VS Code (committed settings live in .vscode/, keep local files ignored)
+.vscode/*.local.json
+.vscode/*.local.code-snippets
