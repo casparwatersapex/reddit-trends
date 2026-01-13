@@ -22,4 +22,5 @@
 - `scripts/keyword_growth.py` for growth summaries and timeseries by L3 topic
 - `scripts/anchor_l3_grouping.py` for LLM-guided L3 anchors and keyword-based grouping
 - `src/client_portal/analysis/label_review.py` for cleaning label text in review flows
+- `src/client_portal/analysis/metrics.py` for L3 growth calculations in the review app
 - `src/client_portal/app/label_review_app.py` for interactive label review

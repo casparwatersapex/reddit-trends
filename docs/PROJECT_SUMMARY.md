@@ -13,7 +13,7 @@ Non-technical stakeholders should be able to:
 ## How to run locally
 - Create venv, `pip install -e ".[dev]"`
 - `streamlit run src/client_portal/app/streamlit_app.py`
-- Label review UI: `streamlit run src/client_portal/app/label_review_app.py` (defaults to refined OpenAI L2/L3 outputs; supports custom paths)
+- Label review UI: `streamlit run src/client_portal/app/label_review_app.py` (defaults to refined OpenAI L2/L3 outputs; includes L3 growth tab)
 
 ## Architecture (high level)
 - `pipeline/` handles ingestion (CSV/Parquet/JSONL), validation, and canonical schema
@@ -34,7 +34,7 @@ Non-technical stakeholders should be able to:
 - `scripts/tune_clustering.py` runs a small parameter grid to reduce -1 and topic count
 - `scripts/label_hierarchy.py` builds and labels a simple L1/L2 hierarchy
 - `analysis/` computes topic metrics and chart specs
-- `app/` is the UI (Streamlit), including a label review browser
+- `app/` is the UI (Streamlit), including label review and L3 growth tabs
 - `reporting/` generates PPTX from charts
 
 ## Current constraints / known gotchas
