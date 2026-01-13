@@ -19,7 +19,12 @@ def run_pipeline(input_path: str | Path, client_config_path: str | Path) -> pd.D
     cfg = load_client_config(client_config_path)
     df = read_tabular(input_path)
     df = apply_column_mapping(df, cfg.get("column_mapping", {}))
-    df = parse_types(df, date_col="date")
+    df = parse_types(
+        df,
+        date_col="date",
+        date_format=cfg.get("date_format"),
+        date_unit=cfg.get("date_unit"),
+    )
 
     required = cfg.get("required_columns", [])
     result = require_columns(df, required)

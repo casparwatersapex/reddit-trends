@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Literal
 
 import pandas as pd
 
 
 def read_tabular(path: str | Path) -> pd.DataFrame:
-    """Read a CSV or Parquet file into a DataFrame.
+    """Read a CSV, Parquet, or JSONL file into a DataFrame.
 
     Keep this function narrow and predictable. If you add formats (xlsx), do it explicitly.
     """
@@ -17,4 +16,6 @@ def read_tabular(path: str | Path) -> pd.DataFrame:
         return pd.read_csv(path)
     if suffix in {".parquet", ".pq"}:
         return pd.read_parquet(path)
-    raise ValueError(f"Unsupported file type: {suffix}. Supported: .csv, .parquet")
+    if suffix in {".jsonl", ".json"}:
+        return pd.read_json(path, lines=True)
+    raise ValueError(f"Unsupported file type: {suffix}. Supported: .csv, .parquet, .jsonl")

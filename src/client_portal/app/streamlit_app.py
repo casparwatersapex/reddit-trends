@@ -10,7 +10,6 @@ from client_portal.analysis.metrics import basic_summary
 from client_portal.pipeline.run import run_pipeline
 from client_portal.reporting.pptx import build_pptx
 
-
 st.set_page_config(page_title="Client Analytics Portal", layout="wide")
 st.title("Client Analytics Portal (Template)")
 

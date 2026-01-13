@@ -1,0 +1,25 @@
+client_name: GardeningUK
+
+# Required canonical columns for v1 Reddit analysis.
+required_columns:
+  - post_id
+  - date
+  - subreddit
+  - title
+  - body
+  - url
+  - author
+  - score
+  - num_comments
+  - is_self
+  - permalink
+
+# Mapping from raw input columns -> canonical names
+column_mapping:
+  id: post_id
+  created_utc: date
+  selftext: body
+
+# Parsing hints
+date_format: null
+date_unit: s

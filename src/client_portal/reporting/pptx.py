@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 import plotly.io as pio
 from pptx import Presentation
@@ -24,7 +24,9 @@ def build_pptx(output_path: str | Path, figures: Iterable, title: str = "Client 
     # One slide per figure
     for fig in figures:
         slide = prs.slides.add_slide(prs.slide_layouts[5])  # Title Only
-        slide.shapes.title.text = getattr(fig.layout, "title", {}).text if hasattr(fig, "layout") else "Chart"
+        slide.shapes.title.text = (
+            getattr(fig.layout, "title", {}).text if hasattr(fig, "layout") else "Chart"
+        )
 
         png = _fig_to_png_bytes(fig)
         img_path = output_path.with_suffix(".tmp.png")
