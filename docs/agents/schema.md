@@ -21,5 +21,5 @@ For Reddit JSONL ingestion, the canonical columns are:
 Validation metrics should track null counts for required columns plus invalid dates.
 
 ## Where to define
-- `clients/<client>/config.yml` describes column mapping and required fields.
+- `clients/<client>/config.yml` describes column mapping and required fields (Reddit JSONL uses `clients/reddit/config.yml`).
 - `src/client_portal/pipeline/validate.py` enforces required columns.

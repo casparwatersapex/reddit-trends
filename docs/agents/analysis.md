@@ -24,3 +24,4 @@
 - `src/client_portal/analysis/label_review.py` for cleaning label text in review flows
 - `src/client_portal/analysis/metrics.py` for L3 growth calculations in the review app
 - `src/client_portal/app/label_review_app.py` for interactive label review
+- `src/client_portal/app/project_manager_app.py` for repeatable project runs with preset OpenAI embedding + labeling defaults

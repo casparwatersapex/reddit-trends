@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -131,6 +132,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def safe_print(text: str) -> None:
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        sys.stdout.write(text.encode("utf-8", errors="backslashreplace").decode("utf-8") + "\n")
+
+
 def main() -> int:
     args = parse_args()
     load_env(Path(".env"))
@@ -212,7 +220,7 @@ def main() -> int:
 
     out_df = pd.DataFrame(rows)
     if not out_df.empty:
-        print(out_df.to_string(index=False))
+        safe_print(out_df.to_string(index=False))
     print(f"Wrote labels: {output_path}")
     return 0
 

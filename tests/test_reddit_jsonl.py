@@ -27,7 +27,7 @@ def test_reddit_jsonl_pipeline(tmp_path: Path) -> None:
     ]
     p.write_text("\n".join(json.dumps(row) for row in rows), encoding="utf-8")
 
-    cfg = Path("clients/gardeninguk/config.yml")
+    cfg = Path("clients/reddit/config.yml")
     df = run_pipeline(input_path=p, client_config_path=cfg)
 
     required = {

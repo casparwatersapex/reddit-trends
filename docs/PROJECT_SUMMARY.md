@@ -14,6 +14,17 @@ Non-technical stakeholders should be able to:
 - Create venv, `pip install -e ".[dev]"`
 - `streamlit run src/client_portal/app/streamlit_app.py`
 - Label review UI: `streamlit run src/client_portal/app/label_review_app.py` (defaults to refined OpenAI L2/L3 outputs; includes L3 growth tab)
+- Project manager UI: `streamlit run src/client_portal/app/project_manager_app.py` (creates named projects, runs OpenAI pipeline, and reuses review + growth views)
+- Reddit JSONL config: `clients/reddit/config.yml`
+- Streamlit upload limit is set to 5 GB in `.streamlit/config.toml`.
+- Project manager supports resume mode to skip steps whose outputs already exist.
+
+## How to stay up to date
+- `docs/STATE.md` for current defaults and active status.
+- `docs/RUNBOOK.md` for step-by-step pipeline execution.
+- `docs/DATASETS.md` for canonical input inventory.
+- `docs/CONFIGS.md` for client config conventions.
+- `docs/CHANGES.md` for recent updates.
 
 ## Architecture (high level)
 - `pipeline/` handles ingestion (CSV/Parquet/JSONL), validation, and canonical schema
@@ -35,6 +46,8 @@ Non-technical stakeholders should be able to:
 - `scripts/label_hierarchy.py` builds and labels a simple L1/L2 hierarchy
 - `analysis/` computes topic metrics and chart specs
 - `app/` is the UI (Streamlit), including label review and L3 growth tabs
+- `app/project_manager_app.py` manages repeatable projects with JSONL uploads and OpenAI-first clustering defaults
+- `projects.py` stores project metadata and standard output paths under `projects/`
 - `reporting/` generates PPTX from charts
 
 ## Current constraints / known gotchas

@@ -9,3 +9,7 @@
 - Runs as a Streamlit app.
 - Stores uploaded files on disk for the current session only (configurable).
 - For multi-user: add a database + object storage.
+
+## Runbooks and state
+- `docs/RUNBOOK.md` for step-by-step execution.
+- `docs/STATE.md` for current defaults and status.
